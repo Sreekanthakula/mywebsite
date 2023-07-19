@@ -1,0 +1,95 @@
+<html>
+<head>
+<title> Form</title>
+<style>
+*{background-color:#abcdef;}
+
+#pass{background-color:green;
+	font-size:25px;}
+
+#fail{background-color:red;
+	font-size:25px;}
+
+b{font-size:25px;}
+
+#tot{background-color:orange;}
+
+#pers{background-color:white;}
+
+</style>
+</head>
+<body>
+<center>
+<form>
+
+<h1> <u> WELCOME  </u></h1>
+<h1> <u> RESULT:  </u></h1>
+
+<b>Subject 1:<input type="text" id="s1"> /100<br>
+	Subject 2:<input type="text" id="s2"> /100<br>
+	Subject 3:<input type="text" id="s3"> /100<br>
+	Subject 4:<input type="text" id="s4"> /100<br>
+	Subject 5:<input type="text" id="s5"> /100<br>
+	Subject 6:<input type="text" id="s6"> /100<br><br>
+</b>
+<button type="button" onclick="sum()"><b>TOTAL</b></button><br><br>
+<button type="button" onclick="perc()"><b>PERCENTAGE</b></button><br><br>
+<button type="submit" ><b>SUBMIT</b></button>
+<button type="reset" ><b>RESET</b></button><br>
+
+<script>
+
+function sum()
+{
+	var a=document.getElementById("s1").value;
+	var b=document.getElementById("s2").value;
+	var c=document.getElementById("s3").value;	
+	var d=document.getElementById("s4").value;
+	var e=document.getElementById("s5").value;
+	var f=document.getElementById("s6").value;
+
+	var res=parseInt(a)+parseInt(b)+parseInt(c)+parseInt(d)+parseInt(e)+parseInt(f);
+	
+	if(!isNaN(res))
+	{
+		document.getElementById("tot").innerHTML="TOTAL MARKS is "+res+"/600" ;
+	}
+}
+
+function perc()
+{	
+	var a=document.getElementById("s1").value;
+	var b=document.getElementById("s2").value;
+	var c=document.getElementById("s3").value;	
+	var d=document.getElementById("s4").value;
+	var e=document.getElementById("s5").value;
+	var f=document.getElementById("s6").value;
+
+	var res=parseInt(a)+parseInt(b)+parseInt(c)+parseInt(d)+parseInt(e)+parseInt(f);
+	var p=res/6;
+
+	if(!isNaN(p))
+	{
+		document.getElementById("pers").innerHTML="PERCENTAGE is  "+p +"%/100%";
+	}
+	
+	if(a>=35& b>=35& c>=35& d>=35& e>=35& f>=35)
+	{
+		document.getElementById("pass").innerHTML="PASS";
+	}
+	else
+	{
+		document.getElementById("fail").innerHTML="FAIL";
+	}
+
+}
+
+</script>
+<h1 id="tot"></h1>
+<h1 id="pers"></h1>
+<h1 id="pass"></h1>
+<h1 id="fail"></h1>
+</form>
+</center>
+</body>
+</html>
